@@ -32,3 +32,15 @@ Fallidos:
 La fuente y los tests se conservaron sin modificaciones; no se presenta la suite como aprobada.
 No se ejecutaron pruebas de integración con Supabase, Railway, WhatsApp o ingesta.
 No se migraron datos ni se cambió el sitio publicado.
+
+## Revisión posterior a c2761e4
+
+Se corrigieron únicamente dos problemas de integración:
+- El test de HTML arranca el Worker con Wrangler local y bindings desechables; no consulta producción.
+- Se declararon scrollbar-thin, scrollbar-none y scrollbar-gutter-stable, ya utilizados por el componente message-scroller pero ausentes del catálogo.
+
+Nueva compilación: aprobada. Suite completa: 5 tests aprobados, 0 fallidos.
+El simulador necesitó ejecutarse fuera del sandbox por una restricción de lectura de Windows.
+Las advertencias de imágenes Leaflet permanecen; no se modificó el mapa.
+El manifiesto de hashes sigue siendo el registro histórico de la recuperación inicial, no del código posterior a estas correcciones.
+Los artefactos de compilación y dependencias permanecen sólo en el entorno local y están excluidos de Git.

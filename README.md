@@ -2,6 +2,12 @@
 
 Repositorio consolidado del trabajo existente. Frontend canónico: https://sistema-vivo-caba-core.coolcamumu.chatgpt.site/
 
+## Fuentes de verdad
+
+GitHub (cororastelli/Sistema-Vivo) pasa a ser la fuente de verdad del código.
+Supabase es la fuente de verdad de los datos acordada para la integración.
+Actualmente el frontend canónico todavía lee y escribe D1/R2: el cambio a Supabase está pendiente y no debe darse por realizado. Los datos existentes de D1 deben preservarse y reconciliarse antes del cambio.
+
 ## Contenido
 
 - `frontend/`: fuente completa recuperada de Sites, versión 13, incluido su servidor integrado, moderación, esquema D1, migraciones y tests.

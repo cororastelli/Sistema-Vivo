@@ -47,3 +47,12 @@ work/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Additional backup and editor artifacts
+backups/
+backup/
+*.sql.gz
+*.sqlite3-*
+*.swp
+*.swo
+*~
