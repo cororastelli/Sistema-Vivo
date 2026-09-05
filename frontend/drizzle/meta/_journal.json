@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788558792991,
+      "tag": "0000_chief_dark_beast",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1788560326397,
+      "tag": "0001_aberrant_ghost_rider",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1788561683194,
+      "tag": "0002_fat_stick",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1788615957142,
+      "tag": "0003_complete_colegiales",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1788616679748,
+      "tag": "0004_broken_shiva",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1788618203074,
+      "tag": "0005_whole_archangel",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1788632833540,
+      "tag": "0006_cold_mercury",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sistema vivo · Parque Ferroviario Colegiales</title>
+<style>
+:root{--bg:#eef1f6;--panel:#fff;--ink:#141a2a;--muted:#6f7890;--blue:#174fe8;--blue2:#7fa0ff;--green:#2aa36b;--amber:#d39220;--red:#dc3f3f;--line:#d9dfeb;--soft:#f7f9fc}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--blue);text-decoration:none}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:#101626;color:#fff;padding:28px 20px;position:sticky;top:0;height:100vh}.brand{font-size:22px;font-weight:800;line-height:1.05;margin-bottom:8px}.sub{font-size:12px;color:#aeb9d6;margin-bottom:28px}.nav button{width:100%;background:none;border:0;color:#cdd6ef;padding:12px 14px;text-align:left;border-radius:12px;font-weight:700;margin:3px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#1a2550;color:#fff}.main{padding:30px 34px 60px}.topline{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:24px}.title h1{font-size:36px;line-height:1.05;margin:0 0 8px}.title p{margin:0;color:var(--muted);max-width:760px}.badge{padding:9px 12px;border-radius:999px;background:#e7edff;color:var(--blue);font-weight:800;font-size:12px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-7{grid-column:span 7}.span-6{grid-column:span 6}.span-5{grid-column:span 5}.span-4{grid-column:span 4}.span-3{grid-column:span 3}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);font-weight:900}.big{font-size:26px;font-weight:850;line-height:1.05;margin:6px 0}.muted{color:var(--muted)}.metric{font-size:28px;font-weight:900}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.pill{font-size:11px;border-radius:999px;padding:7px 10px;background:#edf2ff;color:#174fe8;font-weight:800}.pill.green{background:#e8f7ef;color:#1e8656}.pill.amber{background:#fff4dc;color:#9b6514}.pill.red{background:#fdeaea;color:#ae2f2f}.progress{height:8px;background:#e7ebf4;border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:var(--blue)}.source{font-size:11px;color:#6c7690;line-height:1.45}.source a{font-weight:700}.section{display:none}.section.active{display:block}.list{margin:10px 0 0;padding-left:18px}.list li{margin:7px 0}.dim{display:grid;grid-template-columns:180px 1fr 120px;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}.dim:last-child{border-bottom:0}.status{justify-self:end;font-weight:800;font-size:12px}.status.ok{color:var(--green)}.status.mid{color:var(--amber)}.status.att{color:var(--red)}.timeline{display:flex;align-items:center;gap:0;margin-top:14px}.step{flex:1;position:relative;padding-top:28px;font-size:12px;color:var(--muted)}.step:before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:#bfd0ff}.step:first-child:before{left:50%}.step:last-child:before{right:50%}.step:after{content:"";position:absolute;top:2px;left:50%;width:14px;height:14px;background:var(--blue);border-radius:50%;transform:translateX(-50%)}.step b{display:block;color:var(--ink);font-size:12px}.quote{font-size:20px;font-weight:800;line-height:1.25}.heat{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.heat .h{border-radius:14px;padding:14px;background:#edf2ff}.heat .h strong{display:block;margin-bottom:4px}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.table th{font-size:11px;text-transform:uppercase;color:#66708a}.cta{background:#101626;color:white;border-radius:20px;padding:22px}.cta h3{margin:0 0 7px;font-size:24px}.decision{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.check{display:flex;gap:9px;margin:8px 0}.dot{width:9px;height:9px;border-radius:50%;background:var(--blue);margin-top:5px;flex:0 0 auto}.mini{font-size:12px}.legend{font-size:11px;color:var(--muted)}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{position:relative;height:auto}.nav{display:flex;overflow:auto}.nav button{min-width:max-content}.main{padding:22px}.span-8,.span-7,.span-6,.span-5,.span-4,.span-3{grid-column:span 12}.decision{grid-template-columns:1fr}.dim{grid-template-columns:1fr}.status{justify-self:start}.heat{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand">SISTEMA VIVO<br>COLEGIALES</div>
+  <div class="sub">Evaluación continua + próxima etapa de transformación</div>
+  <div class="nav">
+    <button class="active" data-tab="inicio">Inicio</button>
+    <button data-tab="anexo1">Anexo 1 · Índices</button>
+    <button data-tab="anexo2">Anexo 2 · Recolección</button>
+    <button data-tab="anexo3">Anexo 3 · Evaluación</button>
+    <button data-tab="resultado">Resultado · Etapa 5</button>
+    <button data-tab="fuentes">Fuentes</button>
+  </div>
+</aside>
+<main class="main">
+<section id="inicio" class="section active">
+  <div class="topline"><div class="title"><h1>Parque Ferroviario Colegiales</h1><p>Prototipo de plataforma que toma la metodología de evaluación de DGANU y la transforma en un sistema continuo: integra evidencia, actualiza indicadores y orienta la próxima etapa del espacio público.</p></div><div class="badge">PRE-DIAGNÓSTICO 2026</div></div>
+  <div class="grid">
+    <div class="card span-8"><div class="kicker">Idea central</div><div class="quote">El parque no termina cuando se inaugura. Cada intervención modifica usos y necesidades, por lo que la evaluación debe quedar abierta y actualizarse en el tiempo.</div></div>
+    <div class="card span-4"><div class="kicker">Base metodológica</div><div class="big">DGANU</div><div class="muted mini">Evaluación ex-ante + ex-post · perspectiva de género y diversidad.</div></div>
+
+    <div class="card span-3"><div class="kicker">Superficie intervenida</div><div class="metric">29.657 m²</div><div class="source">GCBA, corte julio 2024.</div></div>
+    <div class="card span-3"><div class="kicker">Suelo permeable</div><div class="metric">19.172 m²</div><div class="source">GCBA, corte julio 2024.</div></div>
+    <div class="card span-3"><div class="kicker">Árboles nuevos</div><div class="metric">171</div><div class="source">+86 existentes.</div></div>
+    <div class="card span-3"><div class="kicker">Beneficiarios estimados</div><div class="metric">81.800</div><div class="source">Estimación GCBA.</div></div>
+
+    <div class="card span-7"><div class="kicker">Cómo funciona</div><div class="timeline"><div class="step"><b>1 · Recolectar</b>campo + datos + reclamos</div><div class="step"><b>2 · Clasificar</b>dimensiones e indicadores</div><div class="step"><b>3 · Comparar</b>evolución temporal</div><div class="step"><b>4 · Priorizar</b>tensiones y urgencias</div><div class="step"><b>5 · Diseñar</b>nueva etapa</div></div></div>
+    <div class="card span-5"><div class="kicker">Qué agrega la tesis</div><div class="check"><i class="dot"></i><div>Historial por indicador y tendencia.</div></div><div class="check"><i class="dot"></i><div>Integración de fuentes hoy dispersas.</div></div><div class="check"><i class="dot"></i><div>Traducción de resultados a un brief espacial.</div></div><div class="check"><i class="dot"></i><div>Actualización continua después de cada obra.</div></div></div>
+
+    <div class="cta span-12"><div class="kicker" style="color:#8ea9ff">Resultado preliminar</div><h3>La próxima etapa debería priorizar continuidad accesible + confort de permanencia + soporte comunitario, sin perder biodiversidad ni patrimonio.</h3><div class="mini" style="color:#bdc7df">No es un “resultado oficial” del índice: es una síntesis preliminar basada en la evidencia disponible. Los indicadores faltantes quedan marcados para completar.</div></div>
+  </div>
+</section>
+
+<section id="anexo1" class="section">
+  <div class="topline"><div class="title"><h1>Anexo 1 · Índices por dimensión</h1><p>Digitalización de la estructura del manual. El sistema conserva las dimensiones e indicadores y suma estado, evidencia, fecha y tendencia.</p></div><div class="badge">ESTRUCTURA DGANU</div></div>
+  <div class="card">
+    <div class="dim"><div><b>Accesibilidad y movilidad</b><div class="mini muted">movilidad · bordes · caminabilidad · mobiliario · señalética · mantenimiento</div></div><div><div class="progress"><i style="width:58%"></i></div><div class="legend">Evidencia parcial: accesos, bordes ferroviarios, correcciones posteriores de accesibilidad. Falta relevamiento integral 2026.</div></div><div class="status att">ATENCIÓN</div></div>
+    <div class="dim"><div><b>Seguridad</b><div class="mini muted">vitalidad · vigilancia natural · iluminación · percepción</div></div><div><div class="progress"><i style="width:62%"></i></div><div class="legend">Hay iluminación LED y medidas de seguridad; entrevistas señalan variación por horario. Faltan encuestas coincidentales completas.</div></div><div class="status mid">REVISAR</div></div>
+    <div class="dim"><div><b>Usos</b><div class="mini muted">equipamientos específicos · flexibilidad · diversidad · convivencia</div></div><div><div class="progress"><i style="width:70%"></i></div><div class="legend">Uso cotidiano diverso, apropiaciones distintas y conflictos puntuales. El manual considera explícitamente convivencia y monopolización.</div></div><div class="status mid">REVISAR</div></div>
+    <div class="dim"><div><b>Paisaje cultural y apropiación</b><div class="mini muted">patrimonio · identidad · apropiación</div></div><div><div class="progress"><i style="width:78%"></i></div><div class="legend">Se conserva identidad ferroviaria y existe reuso de estructuras; persisten piezas residuales sin función clara.</div></div><div class="status ok">FORTALEZA</div></div>
+    <div class="dim"><div><b>Ambiente</b><div class="mini muted">vegetación · sustentabilidad · biodiversidad · mantenimiento</div></div><div><div class="progress"><i style="width:82%"></i></div><div class="legend">Alta presencia de suelo permeable y vegetación; el sitio posee valor de biodiversidad. Debe evaluarse confort microclimático por sectores/horarios.</div></div><div class="status ok">FORTALEZA</div></div>
+  </div>
+  <div class="grid" style="margin-top:16px">
+    <div class="card span-6"><div class="kicker">Qué no hacemos</div><div class="big">No inventamos un nuevo índice.</div><p class="muted">Partimos de la operacionalización de DGANU y la usamos como arquitectura base.</p></div>
+    <div class="card span-6"><div class="kicker">Qué sí agregamos</div><div class="big">Tiempo + trazabilidad.</div><p class="muted">Cada indicador guarda fuente, fecha, confianza, tendencia y última actualización.</p></div>
+  </div>
+</section>
+
+<section id="anexo2" class="section">
+  <div class="topline"><div class="title"><h1>Anexo 2 · Recolección de datos</h1><p>La guía original propone observación en 4 momentos y combina observación, encuesta, registro audiovisual y entrevistas. La plataforma organiza esos insumos y suma fuentes continuas.</p></div><div class="badge">CAMPO + FUENTES</div></div>
+  <div class="grid">
+    <div class="card span-6"><div class="kicker">Observación requerida</div><div class="heat"><div class="h"><strong>Semana</strong>mañana</div><div class="h"><strong>Semana</strong>tarde/noche</div><div class="h"><strong>Fin de semana</strong>mañana</div><div class="h"><strong>Fin de semana</strong>tarde/noche</div><div class="h"><strong>Repetición</strong>para tendencia</div></div></div>
+    <div class="card span-6"><div class="kicker">Fuentes de la plataforma</div><div class="row" style="margin-top:12px"><span class="pill">observación</span><span class="pill">encuestas</span><span class="pill">entrevistas</span><span class="pill">mapas</span><span class="pill">documentos</span><span class="pill">auditorías</span><span class="pill">reclamos</span><span class="pill">Google Maps</span><span class="pill">proyectos</span><span class="pill">datos ambientales</span></div></div>
+    <div class="card span-12"><div class="kicker">Matriz de carga</div><table class="table"><thead><tr><th>Dato</th><th>Dimensión</th><th>Fuente</th><th>Estado</th><th>Qué falta</th></tr></thead><tbody>
+      <tr><td>Accesos y bordes</td><td>Accesibilidad</td><td>Campo + informes</td><td><span class="pill amber">parcial</span></td><td>Conteo completo por perímetro y horario</td></tr>
+      <tr><td>Uso por sectores</td><td>Usos</td><td>Entrevistas + observación</td><td><span class="pill amber">parcial</span></td><td>Conteos repetidos y permanencias</td></tr>
+      <tr><td>Convivencia / monopolización</td><td>Usos</td><td>Campo + encuestas</td><td><span class="pill amber">parcial</span></td><td>Encuesta coincidental amplia</td></tr>
+      <tr><td>Vegetación y permeabilidad</td><td>Ambiente</td><td>GCBA + investigación</td><td><span class="pill green">cargado</span></td><td>Medición microclimática por sector</td></tr>
+      <tr><td>Patrimonio ferroviario</td><td>Paisaje cultural</td><td>GCBA + campo</td><td><span class="pill green">cargado</span></td><td>Evaluar apropiación/percepción actual</td></tr>
+      <tr><td>Percepción nocturna</td><td>Seguridad</td><td>Entrevistas</td><td><span class="pill red">insuficiente</span></td><td>Muestra por género/edad y franjas horarias</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section id="anexo3" class="section">
+  <div class="topline"><div class="title"><h1>Anexo 3 · Evaluación</h1><p>En lugar de una planilla estática, el prototipo muestra una evaluación viva. Solo se puntúa cuando hay evidencia suficiente; lo demás queda como pendiente.</p></div><div class="badge">EX-POST VIVO</div></div>
+  <div class="grid">
+    <div class="card span-8"><div class="kicker">Estado 2026 · lectura preliminar</div><table class="table"><thead><tr><th>Dimensión</th><th>Lectura</th><th>Tendencia</th><th>Confianza</th></tr></thead><tbody>
+      <tr><td>Accesibilidad y movilidad</td><td>Persisten puntos que requieren revisión pese a correcciones posteriores</td><td>↗ mejora parcial</td><td>media</td></tr>
+      <tr><td>Seguridad</td><td>Infraestructura presente, experiencia desigual por horario</td><td>→ incierta</td><td>baja/media</td></tr>
+      <tr><td>Usos / convivencia</td><td>Diversidad alta; aparecen tensiones y apropiaciones desiguales</td><td>↗ demanda creciente</td><td>media</td></tr>
+      <tr><td>Paisaje / apropiación</td><td>Identidad ferroviaria visible; coexistencia entre reuso y residuos</td><td>→ estable</td><td>media/alta</td></tr>
+      <tr><td>Ambiente</td><td>Fortaleza estructural; falta medir confort térmico y sombra efectiva</td><td>→ estable</td><td>alta en verde, baja en confort</td></tr>
+    </tbody></table></div>
+    <div class="card span-4"><div class="kicker">Regla del sistema</div><div class="big">Preferencia ≠ necesidad ≠ derecho ≠ riesgo</div><p class="muted">Una mayoría no anula una necesidad crítica de accesibilidad o seguridad. La plataforma muestra conflictos de criterios en vez de ocultarlos dentro de un promedio.</p></div>
+    <div class="card span-12"><div class="kicker">Comparación temporal</div><div class="timeline"><div class="step"><b>Proyecto</b>evaluación ex-ante</div><div class="step"><b>Obra</b>implementación</div><div class="step"><b>Uso real</b>evaluación ex-post</div><div class="step"><b>Actualización</b>nuevas señales</div><div class="step"><b>Siguiente etapa</b>nuevo brief</div></div></div>
+  </div>
+</section>
+
+<section id="resultado" class="section">
+  <div class="topline"><div class="title"><h1>Resultado · ¿qué debería hacerse ahora?</h1><p>La plataforma no elige una forma arquitectónica automática. Produce un brief priorizado que orienta la siguiente etapa de proyecto.</p></div><div class="badge">ETAPA 5 · PRELIMINAR</div></div>
+  <div class="decision">
+    <div class="card"><div class="kicker">Brief resultante</div><div class="big">Continuidad accesible + permanencia confortable + soporte comunitario</div>
+      <div class="check"><i class="dot"></i><div><b>Conectar</b> recorridos y bordes donde la infraestructura ferroviaria y el trazado actual interrumpen autonomía o legibilidad.</div></div>
+      <div class="check"><i class="dot"></i><div><b>Mejorar permanencia</b> con sombra, descanso y confort climático sin perder suelo permeable ni biodiversidad.</div></div>
+      <div class="check"><i class="dot"></i><div><b>Incorporar soporte comunitario</b> para usos variables, evitando respuestas hiper-específicas para un único grupo.</div></div>
+      <div class="check"><i class="dot"></i><div><b>Integrar patrimonio</b> como infraestructura útil y legible, no solo como resto decorativo.</div></div>
+      <div class="check"><i class="dot"></i><div><b>Dejar instrumentado el seguimiento</b>: después de la Etapa 5, el sistema vuelve a medir.</div></div>
+    </div>
+    <div class="card"><div class="kicker">Por qué esta prioridad</div><div class="row" style="margin:12px 0"><span class="pill red">accesibilidad</span><span class="pill amber">convivencia</span><span class="pill amber">confort</span><span class="pill green">ambiente</span><span class="pill green">identidad</span></div><p class="muted">La evidencia actual muestra que el parque ya resolvió gran parte de la incorporación de verde, mientras que los temas abiertos se concentran en cómo se usa, se recorre, se permanece y se adapta el espacio después de inaugurado.</p><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="kicker">Antes de cerrar la forma física</div><p class="mini">Completar observaciones en 4 momentos, encuesta coincidental, conteos de accesos/recorridos y relevamiento microclimático. La plataforma muestra qué indicadores faltan y bloquea una “respuesta definitiva” cuando la evidencia es insuficiente.</p></div>
+  </div>
+</section>
+
+<section id="fuentes" class="section">
+  <div class="topline"><div class="title"><h1>Fuentes y trazabilidad</h1><p>Cada dato debería guardar autor, fecha, link, dimensión e indicador afectado.</p></div></div>
+  <div class="grid">
+    <div class="card span-6"><div class="kicker">Metodología</div><ul class="list"><li>Herramientas para la evaluación de espacios públicos con perspectiva de género y diversidad · DGANU.</li><li>Plaza Clemente · caso de aplicación de la herramienta.</li><li>Manual de diseño de espacios públicos con perspectiva de género y diversidad.</li></ul></div>
+    <div class="card span-6"><div class="kicker">Colegiales</div><ul class="list"><li><a target="_blank" href="https://buenosaires.gob.ar/gcaba_historico/noticias/la-ciudad-presenta-un-festival-en-el-nuevo-parque-ferroviario-colegiales">GCBA · Parque Ferroviario Colegiales · corte julio 2024</a></li><li><a target="_blank" href="https://buenosaires.gob.ar/gcaba_historico/parque-ferroviario-colegiales">GCBA · ficha general del parque</a></li><li><a target="_blank" href="https://www.agcba.gov.ar/docs/norm_2026-05-19_resoluciones-63-a-74-de-2026.pdf">AGCBA · auditoría Parque Ferroviario Colegiales 2026</a></li><li>Campo propio: observación, entrevistas y registros realizados por el equipo.</li></ul></div>
+    <div class="card span-12"><div class="kicker">Nota metodológica</div><p>Los números y estados mostrados en este prototipo no sustituyen una aplicación completa del índice DGANU. Cuando no existe evidencia suficiente, se marca como pendiente en vez de inventar un puntaje. El objetivo de la plataforma es justamente hacer visible qué información falta, actualizarla y sostener el proceso en el tiempo.</p></div>
+  </div>
+</section>
+</main>
+</div>
+<script>
+const buttons=[...document.querySelectorAll('.nav button')];
+const sections=[...document.querySelectorAll('.section')];
+buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');sections.forEach(s=>s.classList.remove('active'));document.getElementById(b.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}));
+</script>
+</body>
+</html>

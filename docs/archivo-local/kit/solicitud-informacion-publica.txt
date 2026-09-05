@@ -1,0 +1,11 @@
+ASUNTO: Solicitud de acceso a la información pública sobre [ESPACIO]
+
+Solicito, en formato digital y para el período [FECHAS], la siguiente información relativa a [NOMBRE Y UBICACIÓN DEL ESPACIO]:
+
+1. [Documento o base solicitada].
+2. [Documento o base solicitada].
+3. Metodología, fecha de corte y área responsable de producir o custodiar la información.
+
+En caso de que la información se encuentre publicada, solicito se indique el enlace directo y el documento específico. Si ese organismo no fuera competente, solicito la remisión al área correspondiente.
+
+Datos de contacto del solicitante: [COMPLETAR].
