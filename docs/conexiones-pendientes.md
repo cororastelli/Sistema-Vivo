@@ -4,7 +4,7 @@ El estado vigente está en [Integración y activación](integracion-preparada.md
 
 - Supabase: esquema del core aplicado y 2228 registros reales importados y comparados; tablas originales preservadas.
 - Frontend canónico: sigue activo con D1/R2; falta configurar la credencial del servidor, verificar HTTP y publicar el cambio de proveedor.
-- Railway: servicio existente preparado para Docker, pendiente de enlazar GitHub, configurar variables y desplegar.
+- Railway: servicio existente enlazado a GitHub y preparado para Docker; falta la clave privada de Supabase y ejecutar el despliegue preparado.
 - WhatsApp: proveedor en preparación por la usuaria.
 - Ingesta: servicios originales no recuperados; no hay automatización desplegada.
 

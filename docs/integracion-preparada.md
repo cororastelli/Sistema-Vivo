@@ -41,16 +41,16 @@ Railway: proyecto Sistema Vivo, servicio sistema-vivo-web, entorno production. S
 
 Railway rechazó railway.toml porque Config as Code está deprecado para servicios nuevos. Se retiró ese archivo; la configuración efectiva queda en el servicio. Referencia oficial: https://docs.railway.com/infrastructure-as-code#migrating-from-config-as-code
 
-Todavía faltan el enlace del servicio al repositorio, las variables privadas y el despliegue. No se creó otro servicio o proyecto. GET /health comprueba el proceso; GET /v1/dashboard requiere SV_API_TOKEN y permite comprobar la conexión con los datos.
+El servicio quedó enlazado a cororastelli/Sistema-Vivo, rama main, dentro del proyecto y servicio existentes. SUPABASE_URL y un SV_API_TOKEN aleatorio están guardados como variables privadas; falta SUPABASE_SECRET_KEY y aceptar el despliegue preparado. No se creó otro servicio o proyecto. GET /health comprueba el proceso; GET /v1/dashboard requiere SV_API_TOKEN y permite comprobar la conexión con los datos.
 
 Variables de servidor necesarias: SUPABASE_URL, SUPABASE_SECRET_KEY y SV_API_TOKEN (mínimo 32 caracteres aleatorios). Se acepta SUPABASE_SERVICE_ROLE_KEY sólo como compatibilidad heredada. La clave de Supabase debe ser de servidor; nunca usar NEXT_PUBLIC_* ni publicar la clave. Una clave pública no la sustituye.
 
 ## Pendiente de activación
 
-1. Acceder al proyecto real desde una sesión de Supabase: la cuenta abierta en el navegador no muestra organizaciones ni acceso al proyecto. El conector SQL sí tiene acceso, pero no entrega claves de servidor.
+1. Completar el inicio de sesión de coolcamumu@gmail.com en el navegador para recuperar o crear la clave privada del proyecto. El conector SQL tiene acceso, pero no entrega claves de servidor.
 2. Configurar las credenciales en los gestores privados de Sites y Railway, sin imprimirlas ni incorporarlas a Git.
 3. Probar por HTTP lectura y guardado privado, errores y recuperación; revalidar cambios posteriores en D1 antes del cambio.
-4. Conectar Railway a cororastelli/Sistema-Vivo, desplegar el servicio existente y verificar su API autorizada.
+4. Añadir SUPABASE_SECRET_KEY en Railway, aceptar el despliegue preparado y verificar su API autorizada.
 5. Activar Supabase y publicar el frontend canónico conservando su diseño. Si se reciben aportes en Supabase, reconciliarlos antes de cualquier retorno a D1.
 6. Completar el proveedor de WhatsApp y recuperar o implementar los servicios de ingesta según fuentes y contratos reales. No se inventaron eventos ni datos.
 
