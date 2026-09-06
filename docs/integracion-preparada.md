@@ -1,8 +1,8 @@
-# Integración: datos importados, conexión del sitio pendiente
+# Integración activa
 
 ## Estado verificado el 6 de septiembre de 2026
 
-GitHub es la fuente de verdad del código. Se conserva el frontend canónico sistema-vivo-caba-core y su identidad de Sites. El sitio publicado todavía utiliza D1/R2; no se activó SV_DATA_BACKEND=supabase ni se publicó una nueva versión.
+GitHub es la fuente de verdad del código. Se conserva el frontend canónico `sistema-vivo-caba-core` y su identidad de Sites. La versión 17 está publicada con `SV_DATA_BACKEND=supabase`; la comprobación pública mostró la base conectada y 2177 espacios.
 
 ## Supabase
 
@@ -31,7 +31,7 @@ Las 12 tablas tienen RLS. Las funciones sv_core_dashboard y sv_core_submit usan 
 
 El esquema public original conserva sus 3 espacios y no se modificó. Sus IDs colegiales, estacion y saavedra corresponden por nombre, barrio y comuna a los casos del core parque-ferroviario-colegiales, parque-de-la-estacion y parque-saavedra. No se fusionaron ni sobreescribieron registros o geometrías.
 
-La exportación se procesó en memoria: no se versionaron datos, volcados ni credenciales. D1/R2 siguen intactos y activos. Antes del cambio del sitio, repetir la comparación para detectar cambios posteriores; no tratar esta importación como sincronización continua.
+La exportación se procesó en memoria: no se versionaron datos, volcados ni credenciales. D1/R2 sigue intacto como origen histórico. La importación no constituye una sincronización continua.
 
 ## Código y Railway
 
@@ -41,18 +41,15 @@ Railway: proyecto Sistema Vivo, servicio sistema-vivo-web, entorno production. S
 
 Railway rechazó railway.toml porque Config as Code está deprecado para servicios nuevos. Se retiró ese archivo; la configuración efectiva queda en el servicio. Referencia oficial: https://docs.railway.com/infrastructure-as-code#migrating-from-config-as-code
 
-El servicio quedó enlazado a cororastelli/Sistema-Vivo, rama main, dentro del proyecto y servicio existentes. SUPABASE_URL y un SV_API_TOKEN aleatorio están guardados como variables privadas; falta SUPABASE_SECRET_KEY y aceptar el despliegue preparado. No se creó otro servicio o proyecto. GET /health comprueba el proceso; GET /v1/dashboard requiere SV_API_TOKEN y permite comprobar la conexión con los datos.
+El servicio quedó enlazado a `cororastelli/Sistema-Vivo`, rama `main`, dentro del proyecto y servicio existentes. `SUPABASE_URL`, `SUPABASE_SECRET_KEY` y un `SV_API_TOKEN` aleatorio están guardados como variables privadas. El despliegue de `production` finalizó correctamente y el healthcheck `/health` pasó. No se creó otro servicio o proyecto. `GET /v1/dashboard` requiere `SV_API_TOKEN`.
 
 Variables de servidor necesarias: SUPABASE_URL, SUPABASE_SECRET_KEY y SV_API_TOKEN (mínimo 32 caracteres aleatorios). Se acepta SUPABASE_SERVICE_ROLE_KEY sólo como compatibilidad heredada. La clave de Supabase debe ser de servidor; nunca usar NEXT_PUBLIC_* ni publicar la clave. Una clave pública no la sustituye.
 
-## Pendiente de activación
+## Pendiente funcional
 
-1. Completar el inicio de sesión de coolcamumu@gmail.com en el navegador para recuperar o crear la clave privada del proyecto. El conector SQL tiene acceso, pero no entrega claves de servidor.
-2. Configurar las credenciales en los gestores privados de Sites y Railway, sin imprimirlas ni incorporarlas a Git.
-3. Probar por HTTP lectura y guardado privado, errores y recuperación; revalidar cambios posteriores en D1 antes del cambio.
-4. Añadir SUPABASE_SECRET_KEY en Railway, aceptar el despliegue preparado y verificar su API autorizada.
-5. Activar Supabase y publicar el frontend canónico conservando su diseño. Si se reciben aportes en Supabase, reconciliarlos antes de cualquier retorno a D1.
-6. Completar el proveedor de WhatsApp y recuperar o implementar los servicios de ingesta según fuentes y contratos reales. No se inventaron eventos ni datos.
+1. Completar la cuenta y el número del proveedor de WhatsApp; todavía no existen credenciales ni webhook reales.
+2. Recuperar o definir las fuentes y contratos reales de ingesta antes de desplegar automatizaciones. No se inventaron eventos ni datos.
+3. Exponer la API de Railway sólo cuando exista un consumidor que necesite un dominio público; actualmente el proceso está activo y saludable sin dominio externo.
 
 ## Avisos existentes de seguridad
 
@@ -60,4 +57,5 @@ El asesor de Supabase señala PostGIS en public, spatial_ref_sys y funciones de 
 
 ## Verificación
 
-La importación y comparación completas de datos pasaron. Los 9 tests del adaptador/API pasaron después de corregir las rutas compartidas. La compilación y la suite del frontend se verifican antes de publicar el código actualizado.
+La importación y comparación completas de datos pasaron. Los 10 tests del adaptador/API y la compilación del frontend pasaron. La URL pública se verificó después del despliegue y mostró `Base conectada` con 2177 resultados.
+

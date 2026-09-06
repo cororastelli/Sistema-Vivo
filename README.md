@@ -8,14 +8,13 @@ Este chat de Codex es el principal para continuar Sistema Vivo. Se trabaja sobre
 
 ## Fuentes de verdad
 
-GitHub (cororastelli/Sistema-Vivo) pasa a ser la fuente de verdad del código.
-Supabase es la fuente de verdad de los datos acordada para la integración.
-Actualmente el frontend canónico todavía lee y escribe D1/R2: el cambio a Supabase está pendiente y no debe darse por realizado. Los datos existentes de D1 deben preservarse y reconciliarse antes del cambio.
+GitHub (cororastelli/Sistema-Vivo) es la fuente de verdad del código.
+Supabase es la fuente de verdad de los datos. El frontend canónico lee y escribe el esquema protegido `sv_core`; D1/R2 se conserva como origen histórico y respaldo de la migración.
 
 ## Contenido
 
-- `frontend/`: fuente completa recuperada de Sites, versión 13, incluido su servidor integrado, moderación, esquema D1, migraciones y tests.
-- `backend/`: adaptador Supabase y API mínima de lectura preparada para Railway, todavía sin desplegar.
+- `frontend/`: fuente completa del sitio canónico, incluido su servidor integrado, moderación, esquema D1 histórico, adaptador Supabase, migraciones y tests.
+- `backend/`: adaptador Supabase y API mínima de lectura desplegada en el servicio existente de Railway.
 - `supabase/migrations/`: las tres migraciones originales y la migración del core aplicada en Supabase.
 - `whatsapp/` e `ingestion/`: estado de recuperación e integración pendiente.
 - `tests/`: instrucciones de verificación; los tests originales permanecen en frontend/tests.
@@ -41,11 +40,11 @@ El entorno local utiliza D1/R2 simulados; no conecta automáticamente con Supaba
 
 ## Estado real
 
-El sitio usa Cloudflare D1/R2. Supabase/PostGIS existe por separado.
-Se importaron y verificaron 2228 registros reales en Supabase; el sitio todavía utiliza D1/R2 y no se cambió su proveedor de datos.
-Railway fue verificado: el proyecto Sistema Vivo contiene el servicio sistema-vivo-web, todavía sin despliegues ni credenciales de servidor configuradas.
-Consultar docs/conexiones-pendientes.md antes de conectar producción.
+El sitio canónico está publicado con Supabase/PostGIS y muestra 2177 espacios del core. La migración contiene 2228 registros reales verificados. Las credenciales viven únicamente en los gestores de secretos de Sites y Railway.
+Railway ejecuta el servicio `sistema-vivo-web` en `production`, con healthcheck exitoso. No tiene dominio público: queda como runtime privado hasta que exista una necesidad concreta de exponer su API.
+Consultar `docs/conexiones-pendientes.md` para WhatsApp e ingesta.
 
 ## Integración preparada
 
-El core ya está importado en Supabase. El adaptador del sitio y la API de Railway todavía esperan credenciales y despliegue. Ver [estado y activación](docs/integracion-preparada.md). El sitio publicado continúa usando D1/R2.
+El core está importado en Supabase y el adaptador está activo en el frontend canónico. La API de Railway también está desplegada. Ver [estado y activación](docs/integracion-preparada.md).
+
