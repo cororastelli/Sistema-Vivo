@@ -7,7 +7,14 @@ import type { DashboardData } from "@/lib/system-vivo-types";
 
 export async function readDashboardData(): Promise<DashboardData> {
   // Once Supabase is selected, errors must not silently read a different database.
-  if (usesSupabase()) return await getSupabaseStore().readDashboard() as DashboardData;
+  if (usesSupabase()) {
+    try {
+      return await getSupabaseStore().readDashboard() as DashboardData;
+    } catch (error) {
+      console.error("Supabase dashboard read failed", error instanceof Error ? error.message : "unknown error");
+      throw error;
+    }
+  }
   try {
     const db = getDb();
     const spaceRows = await db.select().from(spaces);
@@ -56,3 +63,4 @@ export async function readDashboardData(): Promise<DashboardData> {
     return initialDashboardData;
   }
 }
+

@@ -19,7 +19,9 @@ export function createSupabaseStore({ url, key, fetcher = fetch, uuid = () => cr
       ...options,
       headers: { ...headers, ...options.headers },
       signal: AbortSignal.timeout(15000),
-      redirect: "error",
+      // Cloudflare Workers rejects redirect:"error". "manual" keeps redirects
+      // blocked while remaining portable across Node and the edge runtime.
+      redirect: "manual",
     });
     if (!response.ok) throw new Error(`Supabase request failed (${response.status})`);
     return response;

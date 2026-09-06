@@ -33,7 +33,7 @@ test("maps the existing dashboard contract and preserves missing values", async 
   data.relations=[{id:"test-relation",shared_mechanisms:'["test"]',source_space_id:"test-space"}];
   const client=createSupabaseStore({...options,fetcher:async(url,request) => {
     assert.equal(new URL(url).pathname,"/rest/v1/rpc/sv_core_dashboard");
-    assert.equal(request.redirect,"error");
+    assert.equal(request.redirect,"manual");
     return Response.json(data);
   }});
   const result=await client.readDashboard();
