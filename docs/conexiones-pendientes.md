@@ -33,3 +33,7 @@ Conectar webhooks y tareas programadas sólo después de recuperar y probar la i
 Se conserva la URL y frontend/.openai/hosting.json del proyecto original.
 No se publicó una nueva versión durante esta consolidación.
 Una futura publicación de Sites debe usar frontend como raíz y conservar la identidad del proyecto.
+
+## Actualización de preparación
+
+Se verificó Railway y se preparó el adaptador: consultar [integración preparada](integracion-preparada.md). Esa página actualiza el estado técnico; todavía no se activó la conexión.

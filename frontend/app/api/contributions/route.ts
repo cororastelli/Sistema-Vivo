@@ -1,3 +1,4 @@
+import { getSupabaseStore, usesSupabase } from "@/db/supabase";
 import { env } from "cloudflare:workers";
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -40,6 +41,7 @@ export async function POST(request: Request) {
   const review = reviewContribution({ ...parsed.data, imageCount: images.length });
 
   try {
+    if (usesSupabase()) return NextResponse.json(await getSupabaseStore().saveContribution(parsed.data, images, review));
     const id = crypto.randomUUID();
     const createdAt = new Date().toISOString();
     await getDb().insert(contributions).values({

@@ -1,3 +1,4 @@
+import { getSupabaseStore, usesSupabase } from "./supabase";
 import { eq } from "drizzle-orm";
 import { getDb } from "./index";
 import { entityLinks, evidence, evaluations, issues, projects, regulations, relations, sources, spaces, stakeholders } from "./schema";
@@ -5,6 +6,8 @@ import { initialDashboardData } from "@/lib/initial-data";
 import type { DashboardData } from "@/lib/system-vivo-types";
 
 export async function readDashboardData(): Promise<DashboardData> {
+  // Once Supabase is selected, errors must not silently read a different database.
+  if (usesSupabase()) return await getSupabaseStore().readDashboard() as DashboardData;
   try {
     const db = getDb();
     const spaceRows = await db.select().from(spaces);

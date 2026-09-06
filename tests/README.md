@@ -1,7 +1,13 @@
 # Verificación
 
-Los tests recuperados y corregidos para el entorno Worker están en ../frontend/tests y conservan sus rutas relativas.
-Desde frontend, instalar con npm ci, compilar con npm exec -- vinext build y ejecutar node --test tests/*.test.mjs.
-El conjunto original verifica HTML renderizado y componentes de interfaz; no acredita integración con Supabase, Railway, WhatsApp ni ingesta.
+Desde la raíz: node --test tests/*.test.mjs
+Verifica el adaptador Supabase, errores de almacenamiento y acceso a la API de Railway.
+Usa fixtures sintéticos aislados; nunca los importa a producción.
 
-Ver ../docs/verificacion.md para los resultados de esta recuperación.
+Desde frontend:
+npm exec -- vinext build
+node --test tests/*.test.mjs
+
+Los tests del frontend recuperado verifican HTML y componentes.
+El test de HTML requiere permisos para arrancar el simulador local del Worker.
+Resultados actuales: ../docs/integracion-preparada.md.

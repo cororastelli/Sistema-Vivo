@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "../vendor/shadcn-tailwind-4.13.0.css";
-@import "leaflet/dist/leaflet.css";
+@import "../vendor/leaflet.css";
 
 :root { --ink:#101411; --panel:#171c18; --line:#303730; --paper:#f2f2eb; --muted:#a8afa8; --lime:#d7fb43; --mint:#b8f2cf; --orange:#ff835e; }
 * { box-sizing:border-box; }

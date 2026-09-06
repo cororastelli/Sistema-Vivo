@@ -2,6 +2,10 @@
 
 Repositorio consolidado del trabajo existente. Frontend canónico: https://sistema-vivo-caba-core.coolcamumu.chatgpt.site/
 
+## Continuidad
+
+Este chat de Codex es el principal para continuar Sistema Vivo. Se trabaja sobre esta carpeta y el repositorio existente, preservando lo construido. Las reglas permanentes están en [AGENTS.md](AGENTS.md). Railway queda para runtime/backend cuando corresponda; no se crea otra plataforma paralela.
+
 ## Fuentes de verdad
 
 GitHub (cororastelli/Sistema-Vivo) pasa a ser la fuente de verdad del código.
@@ -11,7 +15,7 @@ Actualmente el frontend canónico todavía lee y escribe D1/R2: el cambio a Supa
 ## Contenido
 
 - `frontend/`: fuente completa recuperada de Sites, versión 13, incluido su servidor integrado, moderación, esquema D1, migraciones y tests.
-- `backend/`: inventario de la API existente y pasos para recuperar/conectar el servicio independiente.
+- `backend/`: adaptador Supabase y API mínima de lectura preparada para Railway, todavía sin desplegar.
 - `supabase/migrations/`: las tres migraciones originales recuperadas del historial real de Supabase.
 - `whatsapp/` e `ingestion/`: estado de recuperación e integración pendiente.
 - `tests/`: instrucciones de verificación; los tests originales permanecen en frontend/tests.
@@ -39,5 +43,9 @@ El entorno local utiliza D1/R2 simulados; no conecta automáticamente con Supaba
 
 El sitio usa Cloudflare D1/R2. Supabase/PostGIS existe por separado.
 La consolidación del repositorio no migra datos ni cambia el sitio publicado.
-Railway fue informado como creado pero sin desplegar en la conversación anterior; no se verificó su panel.
+Railway fue verificado: el proyecto Sistema Vivo contiene el servicio sistema-vivo-web, todavía sin despliegues ni credenciales de servidor configuradas.
 Consultar docs/conexiones-pendientes.md antes de conectar producción.
+
+## Integración preparada
+
+Hay un adaptador Supabase y una API de lectura para Railway, todavía inactivos. Ver [estado y activación](docs/integracion-preparada.md). El sitio publicado continúa usando D1/R2.

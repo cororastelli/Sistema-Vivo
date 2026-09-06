@@ -1,0 +1,30 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { once } from "node:events";
+import { createApiServer } from "../backend/server.mjs";
+const token = "synthetic-unit-test-access-token-only";
+test("Railway API denies unauthenticated reads and protects error details",async t=>{
+  let calls=0;
+  const server=createApiServer({token,store:{readDashboard:async()=>{calls++;throw new Error("private upstream details");}}});
+  server.listen(0,"127.0.0.1");
+  await once(server,"listening");
+  t.after(()=>new Promise(resolve=>server.close(resolve)));
+  const base=`http://127.0.0.1:${server.address().port}`;
+  assert.equal((await fetch(base+"/health")).status,200);
+  assert.equal((await fetch(base+"/v1/dashboard")).status,401);
+  assert.equal(calls,0);
+  const response=await fetch(base+"/v1/dashboard",{headers:{Authorization:`Bearer ${token}`}});
+  assert.equal(response.status,503);
+  assert.deepEqual(await response.json(),{error:"Data service unavailable"});
+  assert.equal(calls,1);
+  assert.equal((await fetch(base+"/v1/dashboard",{method:"POST"})).status,405);
+});
+test("Railway API returns the existing dashboard contract for authorized requests",async t=>{
+  const expected={spaces:[],databaseAvailable:true};
+  const server=createApiServer({token,store:{readDashboard:async()=>expected}});
+  server.listen(0,"127.0.0.1");await once(server,"listening");
+  t.after(()=>new Promise(resolve=>server.close(resolve)));
+  const response=await fetch(`http://127.0.0.1:${server.address().port}/v1/dashboard`,{headers:{Authorization:`Bearer ${token}`}});
+  assert.equal(response.status,200);
+  assert.deepEqual(await response.json(),expected);
+});
