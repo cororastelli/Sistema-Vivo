@@ -11,6 +11,22 @@ test("rejects invalid endpoint and public credentials", () => {
   assert.throws(() => createSupabaseStore({...options,url:"http://example.supabase.co"}));
   assert.throws(() => createSupabaseStore({...options,key:"sb_publishable_example"}));
 });
+test("uses new secret keys without an invalid Bearer header", async () => {
+  const data = empty();
+  data.spaces=[{id:"test-space"}];
+  const seen=[];
+  await createSupabaseStore({...options,key:"sb_secret_example",fetcher:async(url,request) => {
+    seen.push(request.headers);
+    return Response.json(data);
+  }}).readDashboard();
+  assert.equal(seen[0].apikey,"sb_secret_example");
+  assert.equal(seen[0].Authorization,undefined);
+
+  await createSupabaseStore({...options,key:"legacy-service-role-jwt",fetcher:async(url,request) => {
+    assert.equal(request.headers.Authorization,"Bearer legacy-service-role-jwt");
+    return Response.json(data);
+  }}).readDashboard();
+});
 test("maps the existing dashboard contract and preserves missing values", async () => {
   const data = empty();
   data.spaces=[{id:"test-space",source_url:null,area_sqm:null}];
@@ -75,3 +91,4 @@ test("does not delete images when the commit result is uncertain",async () => {
   await assert.rejects(store.saveContribution(input,[new File(["image"],"test.png",{type:"image/png"})],review));
   assert.equal(calls.some(c=>c.method==="DELETE"),false);
 });
+

@@ -7,7 +7,13 @@ export function createSupabaseStore({ url, key, fetcher = fetch, uuid = () => cr
   if (origin.protocol !== "https:" || origin.username || origin.password || origin.pathname !== "/" || origin.search || origin.hash)
     throw new Error("Invalid Supabase URL");
   if (!key || key.startsWith("sb_publishable_")) throw new Error("Server credential required");
-  const headers = { apikey: key, Authorization: `Bearer ${key}` };
+  // Supabase's new sb_secret_* keys are sent only through apikey. Sending one
+  // as a Bearer token is rejected as browser usage. Legacy service_role JWTs
+  // still require the Authorization header.
+  const headers = {
+    apikey: key,
+    ...(!key.startsWith("sb_secret_") ? { Authorization: `Bearer ${key}` } : {}),
+  };
   async function request(path, options = {}) {
     const response = await fetcher(new URL(path, origin), {
       ...options,
@@ -81,3 +87,4 @@ export function createSupabaseStore({ url, key, fetcher = fetch, uuid = () => cr
     },
   };
 }
+
