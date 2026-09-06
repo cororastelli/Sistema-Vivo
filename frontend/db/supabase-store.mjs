@@ -89,4 +89,3 @@ export function createSupabaseStore({ url, key, fetcher = fetch, uuid = () => cr
     },
   };
 }
-

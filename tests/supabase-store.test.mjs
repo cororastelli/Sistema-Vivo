@@ -91,4 +91,3 @@ test("does not delete images when the commit result is uncertain",async () => {
   await assert.rejects(store.saveContribution(input,[new File(["image"],"test.png",{type:"image/png"})],review));
   assert.equal(calls.some(c=>c.method==="DELETE"),false);
 });
-

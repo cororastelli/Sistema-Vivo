@@ -47,4 +47,3 @@ Consultar `docs/conexiones-pendientes.md` para WhatsApp e ingesta.
 ## Integración preparada
 
 El core está importado en Supabase y el adaptador está activo en el frontend canónico. La API de Railway también está desplegada. Ver [estado y activación](docs/integracion-preparada.md).
-

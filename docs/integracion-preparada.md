@@ -58,4 +58,3 @@ El asesor de Supabase señala PostGIS en public, spatial_ref_sys y funciones de 
 ## Verificación
 
 La importación y comparación completas de datos pasaron. Los 10 tests del adaptador/API y la compilación del frontend pasaron. La URL pública se verificó después del despliegue y mostró `Base conectada` con 2177 resultados.
-

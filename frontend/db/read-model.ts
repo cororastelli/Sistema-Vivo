@@ -63,4 +63,3 @@ export async function readDashboardData(): Promise<DashboardData> {
     return initialDashboardData;
   }
 }
-

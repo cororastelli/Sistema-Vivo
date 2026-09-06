@@ -9,4 +9,3 @@ El estado vigente está en [Integración y activación](integracion-preparada.md
 - Ingesta: servicios originales no recuperados; no hay automatización desplegada.
 
 GitHub es la fuente de verdad del código; Supabase es la base real acordada. No se creó una plataforma paralela ni se utilizó AppDeploy.
-
