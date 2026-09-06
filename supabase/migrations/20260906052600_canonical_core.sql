@@ -1,4 +1,4 @@
--- DRAFT: review and apply as a migration before enabling SV_DATA_BACKEND.
+-- Canonical core schema. Enable SV_DATA_BACKEND only after verified data import.
 -- Preserves the existing public schema; no production records are included.
 BEGIN;
 CREATE SCHEMA sv_core;

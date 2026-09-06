@@ -1,10 +1,9 @@
 # Backend
 
 El backend original del sitio sigue en frontend/app/api, frontend/db y frontend/worker.
-supabase-store.mjs adapta el mismo contrato a Supabase sin dependencias nuevas.
-server.mjs expone una API mínima de lectura para Railway, protegida por un token de servidor.
-Dockerfile y railway.toml preparan su ejecución desde la raíz del repositorio.
+supabase-store.mjs reexporta el adaptador compartido del frontend; server.mjs expone la API de lectura para el servicio existente de Railway.
+El Dockerfile incluye el adaptador y mantiene una única implementación.
 
-Esta API es una integración nueva del core recuperado; no es el servicio independiente perdido.
-No implementa el webhook de WhatsApp ni los procesos de ingesta.
-Consultar ../docs/integracion-preparada.md para configuración, límites y estado real.
+Railway tiene configurados Dockerfile y healthcheck mediante su servicio; railway.toml fue retirado porque el proveedor ya no permite esa configuración para servicios nuevos.
+No se desplegó todavía. Esta API no implementa WhatsApp ni ingesta.
+Ver ../docs/integracion-preparada.md para el estado y las conexiones pendientes.

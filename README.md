@@ -16,7 +16,7 @@ Actualmente el frontend canónico todavía lee y escribe D1/R2: el cambio a Supa
 
 - `frontend/`: fuente completa recuperada de Sites, versión 13, incluido su servidor integrado, moderación, esquema D1, migraciones y tests.
 - `backend/`: adaptador Supabase y API mínima de lectura preparada para Railway, todavía sin desplegar.
-- `supabase/migrations/`: las tres migraciones originales recuperadas del historial real de Supabase.
+- `supabase/migrations/`: las tres migraciones originales y la migración del core aplicada en Supabase.
 - `whatsapp/` e `ingestion/`: estado de recuperación e integración pendiente.
 - `tests/`: instrucciones de verificación; los tests originales permanecen en frontend/tests.
 - `docs/`: procedencia, arquitectura, conexiones pendientes y materiales locales anteriores.
@@ -42,10 +42,10 @@ El entorno local utiliza D1/R2 simulados; no conecta automáticamente con Supaba
 ## Estado real
 
 El sitio usa Cloudflare D1/R2. Supabase/PostGIS existe por separado.
-La consolidación del repositorio no migra datos ni cambia el sitio publicado.
+Se importaron y verificaron 2228 registros reales en Supabase; el sitio todavía utiliza D1/R2 y no se cambió su proveedor de datos.
 Railway fue verificado: el proyecto Sistema Vivo contiene el servicio sistema-vivo-web, todavía sin despliegues ni credenciales de servidor configuradas.
 Consultar docs/conexiones-pendientes.md antes de conectar producción.
 
 ## Integración preparada
 
-Hay un adaptador Supabase y una API de lectura para Railway, todavía inactivos. Ver [estado y activación](docs/integracion-preparada.md). El sitio publicado continúa usando D1/R2.
+El core ya está importado en Supabase. El adaptador del sitio y la API de Railway todavía esperan credenciales y despliegue. Ver [estado y activación](docs/integracion-preparada.md). El sitio publicado continúa usando D1/R2.

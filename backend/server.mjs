@@ -25,9 +25,10 @@ export function createApiServer({ store, token }) {
   return server;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SV_API_TOKEN } = process.env;
-  if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) throw new Error("Missing server configuration");
-  const store = createSupabaseStore({ url: SUPABASE_URL, key: SUPABASE_SERVICE_ROLE_KEY });
+  const { SUPABASE_URL, SUPABASE_SECRET_KEY, SUPABASE_SERVICE_ROLE_KEY, SV_API_TOKEN } = process.env;
+  const serverKey = SUPABASE_SECRET_KEY || SUPABASE_SERVICE_ROLE_KEY;
+  if (!SUPABASE_URL || !serverKey) throw new Error("Missing server configuration");
+  const store = createSupabaseStore({ url: SUPABASE_URL, key: serverKey });
   const server = createApiServer({ store, token: SV_API_TOKEN });
   server.listen(Number(process.env.PORT || 3000),"0.0.0.0");
   for (const signal of ["SIGINT","SIGTERM"]) process.on(signal,() => server.close());
