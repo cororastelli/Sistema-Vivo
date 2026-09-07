@@ -221,7 +221,7 @@ function Summary({ space, analysis, evidenceCount, issueCount, onAnalyze }: { sp
     </article>
     <article className="sv-metric"><strong>{evidenceCount}</strong><span>evidencias conectadas</span><small>Documentales y de campo</small></article>
     <article className="sv-metric"><strong>{issueCount}</strong><span>problema emergente</span><small>No es un ranking automático</small></article>
-    {space.areaSqm != null && <article className="sv-official-fact"><span>Superficie oficial</span><strong>{Math.round(space.areaSqm).toLocaleString("es-AR")} m²</strong><small>Buenos Aires Data · actualización 06/07/2026</small></article>}
+    {space.areaSqm != null && <article className="sv-official-fact"><span>Superficie oficial</span><strong>{Math.round(space.areaSqm).toLocaleString("es-AR")} m²</strong><small>Buenos Aires Data · actualización {space.sourceUpdatedAt ? new Intl.DateTimeFormat("es-AR", { timeZone: "UTC" }).format(new Date(`${space.sourceUpdatedAt}T00:00:00Z`)) : "sin fecha informada"}</small></article>}
     <article className="sv-next">
       <CircleAlert size={20} />
       <div><strong>Próximo faltante crítico</strong><p>{analysis.nextSteps[0]?.label ?? "La ficha no presenta faltantes críticos."}: {analysis.nextSteps[0]?.collection ?? "Revisión completa."}</p><button className="sv-text-action" onClick={onAnalyze}>Abrir análisis automático <ArrowRight size={14} /></button></div>

@@ -16,7 +16,8 @@ Supabase es la fuente de verdad de los datos. El frontend canónico lee y escrib
 - `frontend/`: fuente completa del sitio canónico, incluido su servidor integrado, moderación, esquema D1 histórico, adaptador Supabase, migraciones y tests.
 - `backend/`: adaptador Supabase y API mínima de lectura desplegada en el servicio existente de Railway.
 - `supabase/migrations/`: las tres migraciones originales y la migración del core aplicada en Supabase.
-- `whatsapp/` e `ingestion/`: estado de recuperación e integración pendiente.
+- `ingestion/`: servicio de actualización diaria del catálogo oficial, con validación, historial y copia privada de cada versión nueva.
+- `whatsapp/`: integración reservada para la etapa final.
 - `tests/`: instrucciones de verificación; los tests originales permanecen en frontend/tests.
 - `docs/`: procedencia, arquitectura, conexiones pendientes y materiales locales anteriores.
 
@@ -42,7 +43,7 @@ El entorno local utiliza D1/R2 simulados; no conecta automáticamente con Supaba
 
 El sitio canónico está publicado con Supabase/PostGIS y muestra 2177 espacios del core. La migración contiene 2228 registros reales verificados. Las credenciales viven únicamente en los gestores de secretos de Sites y Railway.
 Railway ejecuta el servicio `sistema-vivo-web` en `production`, con healthcheck exitoso. No tiene dominio público: queda como runtime privado hasta que exista una necesidad concreta de exponer su API.
-Consultar `docs/conexiones-pendientes.md` para WhatsApp e ingesta.
+Consultar `docs/conexiones-pendientes.md` para el estado operativo y WhatsApp.
 
 ## Integración preparada
 
